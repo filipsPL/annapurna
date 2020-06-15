@@ -22,8 +22,8 @@ Recommended way of AnnapuRNA installation and running is via conda environment.
 
 ## Uninstallation
 
-(if you no longer need the AnnapuRNA 😞)
+(if you no longer need the AnnapuRNA :frowning:)
 
 1. Remove the directory with the AnnapuRNA code
-2. remove conda environment: `conda remove --name annapurna --all`
-  - To verify that the environment was removed, in your terminal window run `conda info --envs`
+2. remove conda environment: `conda remove --name annapurna --all`.
+3. To verify that the environment was removed, in your terminal window run `conda info --envs`
