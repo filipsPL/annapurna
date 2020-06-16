@@ -4,6 +4,8 @@ testFiles="tests/testFiles"
 outputsDir="tests/outputs"
 expectedOutputsDir="tests/outputs_expected"
 
+source activate base
+conda activate annapurna
 
 function compare {
   for f in $(find $expectedOutputs/ -name *.pdb -or -name *.csv -or -name *.phar -type f); do
@@ -68,3 +70,5 @@ compare
 
 ## killing the h2o server
 trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM EXIT
+
+conda deactivate
