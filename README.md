@@ -5,9 +5,10 @@ AnnapuRNA
 <!-- TOC START min:1 max:6 link:true asterisk:false update:true -->
 - [About](#about)
 - [Installation](#installation)
-  - [Uninstallation](#uninstallation)
+    - [Uninstallation](#uninstallation)
 - [Usage](#usage)
   - [Quick start](#quick-start)
+  - [AnnapuRNA in action](#annapurna-in-action)
   - [Full pipeline](#full-pipeline)
 - [Software used](#software-used)
 <!-- TOC END -->
@@ -24,9 +25,9 @@ Recommended way of AnnapuRNA installation and running is via conda environment.
 2. Clone AnnapuRNA repository: `git clone --depth=1 git@github.com:filipsPL/annapurna.git` or [fetch a zip package](https://github.com/filipsPL/annapurna/archive/master.zip).
 3. Go to the AnnapuRNA directory (typically `cd annapurna` under linux) and restore the conda environment from the yml file `conda env create -f conda-environment.yml` (the complete AnnapuRNA conda environment needs ~1.5 GB of free disk space).
 
-## Uninstallation
+### Uninstallation
 
-(if you no longer need the AnnapuRNA :frowning:)
+(if you no longer need the AnnapuRNA)
 
 1. Remove the directory with the AnnapuRNA code
 2. remove conda environment: `conda remove --name annapurna --all`.
@@ -36,6 +37,20 @@ Recommended way of AnnapuRNA installation and running is via conda environment.
 
 ## Quick start
 
+Sample input files are located in `tests/testFiles/`: `1AJU.pdb` - the RNA structure and `ARG.sdf` - output from docking.
+
+```bash
+conda activate annapurna
+
+mkdir testresults
+./annapurna.py -r tests/testFiles/1AJU.pdb -l tests/testFiles/ARG.sdf -m kNN_modern -o testresults/output --groupby
+```
+
+the scoring files are located in `testresults/output.kNN_modern.csv` (scores for all poses) and `testresults/output.kNN_modern.grouped.csv` (best score for each compound from the input file).
+
+## AnnapuRNA in action
+
+[![asciicast](https://asciinema.org/a/CWXtnXohdnlphVEoL4hnFmxTS.svg)](https://asciinema.org/a/CWXtnXohdnlphVEoL4hnFmxTS)
 
 ## Full pipeline
 
