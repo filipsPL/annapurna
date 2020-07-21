@@ -1,7 +1,5 @@
 ![](obrazki/README-2f55bb45.png)
 
-================
-
 
 <!-- TOC START min:1 max:6 link:true asterisk:false update:true -->
 - [About](#about)
@@ -22,6 +20,8 @@
       - [Scoring huge docking files](#scoring-huge-docking-files)
       - [Running H2O server on another machine](#running-h2o-server-on-another-machine)
       - [Calculate the centroid of the cluster](#calculate-the-centroid-of-the-cluster)
+    - [Output files](#output-files)
+    - [Usage examples](#usage-examples)
   - [Docking programs](#docking-programs)
 - [About the name](#about-the-name)
 - [Software used](#software-used)
@@ -60,7 +60,8 @@ mkdir testresults
 ./annapurna.py -r tests/testFiles/1AJU.pdb -l tests/testFiles/ARG.sdf -m kNN_modern -o testresults/output --groupby
 ```
 
-the scoring files are located in `testresults/output.kNN_modern.csv` (scores for all poses) and `testresults/output.kNN_modern.grouped.csv` (best score for each compound from the input file).
+Output files:
+- Table with scores: `testresults/output.kNN_modern.csv` (scores for all poses) and `testresults/output.kNN_modern.grouped.csv` (best score for each compound from the input file). The AnnapuRNA score is in the last column ("score"). The lower value, the better.
 
 ## AnnapuRNA in action
 
@@ -87,6 +88,8 @@ pdb files fetched from the Protein Data Bank should be fine.
 ##### Ligand poses
 
 AnnapuRNA accepts many file formats, such as sdf, mol2, mol, pdb, or any other [understood by the OpenBabel](http://openbabel.org/docs/current/FileFormats/Overview.html). Extensively tested on sdf files.
+
+If your input file contains more than one compound (i.e., chemical compound with unique structure), please make sure that each of compounds has an unique name/title.
 
 
 ### Scoring models
@@ -211,6 +214,77 @@ By default, AnnapuRNA assumes the H2O ML server is running on the same computer 
 Enabling centroid calculation for clusters - change `averageStructure` variable to `True`:
 
 `averageStructure = False # default`
+
+### Output files
+
+Here we describe files from scoring with two methods, followed by a clustering:
+
+```
+./annapurna.py -r tests/testFiles/1AJU.pdb -l tests/testFiles/ARG.sdf -m kNN_basic -m kNN_modern -o testresults/output  -s --overwrite --groupby --merge --cluster_fraction 1.0 --cluster_cutoff 2.0 --clustering_method AD
+```
+
+**Files which are generated**:
+
+- sdf structural files with cluster representatives. For each scoring method one sdf file is generated):
+
+```
+├── output_clusters__kNN_basic_TOP1.0_RMSD2.0_AD_representatives.sdf
+├── output_clusters__kNN_modern_TOP1.0_RMSD2.0_AD_representatives.sdf
+```
+score and the original pose number are stored the sdf fields, e.g.:
+```
+>  <Pose_Number>
+137
+
+>  <AnnapuRNA Score>
+-38.0489073146
+```
+
+- Scores summary for all scoring functions. Scores for all poses (merged.csv files) and best poses (.grouped.merged.csv files).
+```
+├── output.merged.csv
+├── output.grouped.merged.csv
+```
+
+- scores for all poses (.csv files) and best poses (.grouped.csv files) for each of a scoring method:
+```
+├── output.kNN_basic.csv
+├── output.kNN_basic.grouped.csv
+├── output.kNN_modern.csv
+├── output.kNN_modern.grouped.csv
+```
+
+
+**Additional files:**
+
+- interaction statistics which were used for calculation of scores:
+```
+├── output.csv.bz2
+```
+
+- energy of the ligands:
+```
+├── output.ligand_energy.csv.bz2
+```
+
+-  cleaned pdb files:
+```
+├── output.RNA.clean.pdb
+└── output.RNA.clean.simrna.pdb
+```
+
+### Usage examples
+
+- score docking results with two kNN methods, output data to `testresults` directory, overwrite if files exist. After scoring perform clustering with AD method, for all poses (`--cluster_fraction 1.0`), with 2 Å RMSD cutoff (`--cluster_cutoff 2.0`). Also generate a single file with best pose for each compound (`--groupby`) and each method (`--merge`).
+```
+./annapurna.py -r tests/testFiles/1AJU.pdb -l tests/testFiles/ARG.sdf -m kNN_basic -m kNN_modern -o testresults/output  -s --overwrite --groupby --merge --cluster_fraction 1.0 --cluster_cutoff 2.0 --clustering_method AD
+```
+
+- score docking results with kNN_modern method, output data to `testresults` directory, overwrite if files exist. After scoring perform clustering with SRAP method, for 50% top scoring poses (`--cluster_fraction 0.5`). Also generate a single file with best pose for each compound (`--groupby`) and each method (`--merge`).
+
+```
+./annapurna.py -r tests/testFiles/1AJU.pdb -l tests/testFiles/ARG.sdf -m kNN_modern -o testresults/output  -s --overwrite --groupby --merge --cluster_fraction 0.5 --clustering_method SRAP
+```
 
 
 ## Docking programs
