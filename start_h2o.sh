@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source activate annapurna
+
 port=30000
 
 echo "Starting h2o server at port $port ..."
