@@ -55,7 +55,7 @@ def parse_options():
                       help="RNA pdb file (full atom)")
     group.add_argument("-l", "--ligand", dest="ligandFile", required=True,
                       help="ligand file (sdf, mol2, mol, pdb or any other understood by OpenBabel)")
-    group.add_argument("-m", "--model", dest="modelName", required=True, choices=['DL_basic', 'DL_modern', 'kNN_basic', 'kNN_modern', 'GBE_modern', 'RF_modern', 'DRF_modern', 'NB_modern', 'ALL'], action='append', default=[],
+    group.add_argument("-m", "--model", dest="modelName", required=True, choices=['DL_basic', 'DL_modern', 'kNN_basic', 'kNN_modern', 'RF_modern', 'NB_modern', 'ALL'], action='append', default=[],
                       help="prediction model to be used; may be used multiple times for scoring with different models. Use --info for more information on available models. Use ALL to use all available models.")
 
     group = parser.add_argument_group('optional arguments')
@@ -75,7 +75,7 @@ def parse_options():
                       help="weight for a ligand's energy term. Default: 0.1. 0 (zero) = do not use the energy term.")
 
     group.add_argument("-w", "--weight_distance", dest="useWeightDistance", default=False, choices=[False, 'L-J','linear', '1/x', 'exp', 'x^2', 'log'],
-                      help="weight score by distance depending function. False = don't weight by distance (default)")
+                      help="weight probabilities by distance depending function. False = don't weight by distance (default)")
     group.add_argument("-d", "--distance_cutoff", dest="useDistanceCutoff", default=False, type=float,
                       help="use distance cutoff. 0-10 Å. Default: 10 Å.")
     group.add_argument("-t", "--transform_proba", dest="doTransformProba", default=False, choices=[False, 'PMF'],
@@ -132,8 +132,6 @@ class _getMoreInfo(argparse.Action):
 ## model definition to get the proper engine h2o|scipy ##
 models_engines = {'DL_basic':'h2o',
                   'DL_modern':'h2o',
-                  'GBE_modern':'h2o',
-                  'DRF_modern':'h2o',
                   'NB_modern':'h2o',
                   'kNN_basic':'scipy',
                   'kNN_modern':'scipy',
@@ -152,8 +150,6 @@ def modelInfo():
   print " kNN_modern:	k-nearest neighbors classifier basing on the modern PDB dataset. Uses scikit engine."
   print ""
   print "UNDOCUMENTED MODELS:"
-  print " GBE_modern:	Gradient Boosting Machine basing on the modern PDB dataset. Uses H2O server engine."
-  print " DRF_modern:	Distributed Random Forest basing on the modern PDB dataset. Uses H2O server engine."
   print " NB_modern:	Naive Bayes basing on the modern PDB dataset. Uses H2O server engine."
   print " RF_modern:	Random Forests basing on the modern PDB dataset. Uses scikit engine."
 
@@ -576,7 +572,7 @@ def transformProba(proba, function=False):
   '''Transforms probablility vector'''
   if function != False:
     if function == 'PMF':
-      # Potential of Mean Force (?) See: Bernauer, RNA, 2011, 17, 1066-1075; E=-kT sum (ln(Pobs/Pref))
+      # Potential of Mean Force See: Bernauer, RNA, 2011, 17, 1066-1075; E=-kT sum (ln(Pobs/Pref))
       # Boltzmann constant k = 1.38064852 × 10-23 m2 kg s-2 K-1
       # T = 300 K
       # k*T = 4.1419456e-21
