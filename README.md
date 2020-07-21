@@ -1,4 +1,5 @@
-AnnapuRNA
+![](obrazki/README-2f55bb45.png)
+
 ================
 
 
@@ -15,7 +16,7 @@ AnnapuRNA
         - [Ligand poses](#ligand-poses)
     - [Scoring models](#scoring-models)
     - [Clustering](#clustering)
-    - [Useful options](#useful-options)
+    - [Other options](#other-options)
     - [Advanced options](#advanced-options)
     - [Program fine-tuning (advanced users only!)](#program-fine-tuning-advanced-users-only)
       - [Scoring huge docking files](#scoring-huge-docking-files)
@@ -85,12 +86,12 @@ pdb files fetched from the Protein Data Bank should be fine.
 
 ##### Ligand poses
 
-AnnapuRNA accepts many formats, such as sdf, mol2, mol, pdb, or any other [understood by the OpenBabel](http://openbabel.org/docs/current/FileFormats/Overview.html).
+AnnapuRNA accepts many file formats, such as sdf, mol2, mol, pdb, or any other [understood by the OpenBabel](http://openbabel.org/docs/current/FileFormats/Overview.html). Extensively tested on sdf files.
 
 
 ### Scoring models
 
-:warning: *Please note, that for using Deep Learning models (ie. 'DL_basic', 'DL_modern') you should run a H2O engine in another window, by issuing the command `start_h2o.sh`*.
+:warning: *Please note, that for using Deep Learning models (ie. 'DL_basic', 'DL_modern') you should run a H2O engine in another window, by issuing the command `./start_h2o.sh`*.
 
 
 AnnapuRNA was benchmarked on four different models: 'DL_basic', 'DL_modern', 'kNN_basic', and 'kNN_modern'.
@@ -122,7 +123,7 @@ In addition to those four models, we provide two models of interactions: NB_mode
 AnnapuRNA implements three optional algorithms for poses clustering.
 
 
-### Useful options
+### Other options
 
 - `-o OUTPUTFILENAME` - define the output file name core, eg., `-o testresults/output` will generate results in `testresults` dir, with names starting with `output`.
 - `-s, --skip_statistics` - if, for a given complex (ie. RNA + ligand poses) statistics are already calculated (eg., in a previous run), these can be used directly to score poses, without need to re-calculate interactions statistics.
@@ -148,7 +149,7 @@ The score of internal energy of ligand, E_Ligand , is derived from GAFF internal
 
 ![](obrazki/README-a3f6b4fd.png)
 
-The ligand’s contribution to the final complex score is scaled by the weighting factor w. This parameter was set to 0.1 after optimization in a cross-validation experiment but may be changed by the user via a command-line switch `-e` or `--weight_ligand_energy`. To turn off the ligand term, set it to zero: `-e 0`
+The ligand’s contribution to the final complex score is scaled by the weighting factor w. This parameter was set to 0.1 after optimization in a cross-validation experiment but may be changed by the user via a command-line switch `-e` or `--weight_ligand_energy`. To turn off the ligand term, set it to zero: `-e 0`.
 
 **Distance dependent probabilities**
 
