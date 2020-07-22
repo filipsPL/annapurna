@@ -18,18 +18,23 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: run test
+      - name: install miniconda
         shell: bash
         run: |
           wget --quiet https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-x86_64.sh -O ~/miniconda.sh
           bash ~/miniconda.sh -b -p $HOME/miniconda
           conda env list
-          ls -la
-          conda config --show channels
           conda env create -f conda-environment.yml
-          conda init bash
-          source /home/runner/.bashrc
+          conda init bash --dry-run --verbose
+          if [ "${{ matrix.os }}" != "windows-latest" ]; then
+            echo '::set-env name=CONDA_EXEC::${CONDA}/bin/conda'
+          else
+            echo '::set-env name=CONDA_EXEC::C:\Miniconda\condabin\conda.bat'
+          fi
           conda activate annapurna
           conda list
+      - name: run tests
+        shell: bash
+        run: |
           ./annapurna.py --help
           # ./annapurna-tests.sh
