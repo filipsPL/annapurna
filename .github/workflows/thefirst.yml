@@ -1,12 +1,9 @@
 name: CI (conda)
 on:
   push:
-    paths-ignore:
-    - 'README.md'
-    - '.gitignore'
-    - 'models/'
-    - 'obrazki/'
-    - 'data/'
+    paths:
+    - '**.py'
+    - '.github/workflows/thefirst.yml'
 jobs:
   build:
     strategy:
@@ -45,8 +42,8 @@ jobs:
             wget --quiet https://repo.anaconda.com/miniconda/Miniconda2-latest-MacOSX-x86_64.sh -O ~/miniconda.sh
             bash ~/miniconda.sh -b -p $HOME/miniconda
             conda env list
-            conda env create -f conda-environment.yml
-            conda init bash --dry-run --verbose
+            sudo conda env create -f conda-environment.yml
+            sudo conda init bash --dry-run --verbose
             echo "Adding path"
             export XDG_CONFIG_HOME=$HOME/.config
             export PATH="$PATH:$HOME/.dotnet/tools"
