@@ -24,6 +24,8 @@
     - [Output files](#output-files)
     - [Usage examples](#usage-examples)
   - [Docking programs](#docking-programs)
+  - [Known limitations and issues](#known-limitations-and-issues)
+    - [Installation](#installation-1)
 - [About the name](#about-the-name)
 - [Software used](#software-used)
 <!-- TOC END -->
@@ -52,7 +54,9 @@ Recommended way of AnnapuRNA installation and running is via conda environment u
 
 AnnapuRNA was extensively tested under Linux with Ubuntu versions 16.04, 18.04, and 20.04, with latest miniconda2 `Miniconda2-py27_4.8.3-Linux-x86_64.sh`.
 
-[![CI (conda)](https://github.com/filipsPL/annapurna/workflows/CI%20(conda)/badge.svg)](https://github.com/filipsPL/annapurna/actions?query=workflow%3A%22CI+%28conda%29%22)
+[![install and test](https://github.com/filipsPL/annapurna/workflows/install%20and%20test/badge.svg)](https://github.com/filipsPL/annapurna/actions?query=workflow%3A%22install+and+test%22)
+
+[![Flake8 python](https://github.com/filipsPL/annapurna/workflows/Flake8%20python/badge.svg)](https://github.com/filipsPL/annapurna/actions?query=workflow%3A%22Flake8+python%22)
 
 # Usage
 
@@ -303,6 +307,12 @@ AnnapuRNA was tested on the outputs from the following docking programs:
 - [iDock](https://github.com/HongjianLi/idock)
 - [GOLD](https://www.ccdc.cam.ac.uk/solutions/csd-discovery/components/gold/)
 
+
+## Known limitations and issues
+
+### Installation
+
+**installation under Windows and MacOS.**. It should be possible to use AnnapuRNA with conda environment under Windows and MacOS. The limitation is the availability of the Align-it program in the conda channel - currently it is available only for linux, thus user has to obtain and compile the program independently (the source code and instructions [are available here](http://silicos-it.be.s3-website-eu-west-1.amazonaws.com/software/align-it/1.0.4/align-it.html)).
 
 # About the name
 
