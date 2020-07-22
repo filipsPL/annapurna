@@ -5,6 +5,7 @@ channels:
 - conda-forge
 - defaults
 - r
+- pkgs/free
 dependencies:
 - openblas
 - future
@@ -13,9 +14,9 @@ dependencies:
 - pandas=0.18.0
 - pip
 - readline
-- requests=2.2.1
-- scikit-learn=0.17
-- scipy=0.17.1
+- requests=2.2.1=py27_0
+- scikit-learn=0.17=np110py27_1
+- scipy=0.17.1=np110py27_1
 - requests-toolbelt
 - biopython=1.67
 - align_it==1.0.3=3
@@ -23,9 +24,9 @@ dependencies:
 - urllib3
 - wheel
 - zlib
-- openbabel=2.4.1
+- openbabel=2.4.1=py27_1
 - progressbar
-- python=2.7.14
+- python=2.7.14=1
 - openjdk=8.0.152
 - pip:
   - external_software/h2o-3.9.1.3501/python/h2o-3.9.1.3501-py2.py3-none-any.whl

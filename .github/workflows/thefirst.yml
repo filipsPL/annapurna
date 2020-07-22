@@ -25,6 +25,8 @@ jobs:
           bash ~/miniconda.sh -b -p $HOME/miniconda
           conda env list
           ls -la
+          conda config --show channels
           conda env create -f conda-environment.yml
+          conda list
           ./annapurna.py --help
           ./annapurna-tests.sh
