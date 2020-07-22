@@ -24,7 +24,8 @@ jobs:
         with:
           auto-update-conda: true
           auto-activate-base: false
-          miniconda-version: 'latest'
+          # miniconda-version: 'latest'
+          miniconda-version: 'py27_4.8.3'
           python-version: ${{ matrix.python-version }}
           environment-file: conda-environment.yml
           activate-environment: annapurna
