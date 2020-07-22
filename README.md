@@ -1,7 +1,6 @@
 ![](obrazki/README-2f55bb45.png)
 
-
-<!-- TOC START min:1 max:6 link:true asterisk:false update:true -->
+<!-- TOC START min:1 max:5 link:true asterisk:false update:true -->
 - [About](#about)
 - [Installation](#installation)
     - [Uninstallation](#uninstallation)
@@ -9,6 +8,7 @@
 - [Usage](#usage)
   - [Quick start](#quick-start)
   - [AnnapuRNA in action](#annapurna-in-action)
+  - [AnnapuRNA in Jupyter Notebook](#annapurna-in-jupyter-notebook)
   - [Usage](#usage-1)
     - [Input files](#input-files)
         - [RNA](#rna)
@@ -93,9 +93,9 @@ column -t output.kNN_modern.grouped.csv
 column -t output.kNN_modern.csv | less
 ```
 
-## AnnapuRNA in jupyter notebook
+## AnnapuRNA in Jupyter Notebook
 
-to see or run AnnapuRNA in jupyter-notebook, refer to the [sample notebook](annapurna-example.ipynb) (please note that this is a notebook with a **bash** kernel).
+To see or run AnnapuRNA in jupyter-notebook, refer to the [sample notebook](annapurna-example.ipynb) (please note that this is a notebook with a **bash** kernel).
 
 ## Usage
 
