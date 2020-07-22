@@ -27,7 +27,6 @@ jobs:
           ls -la
           conda config --show channels
           conda env create -f conda-environment.yml
-          source activate base
           conda activate annapurna
           conda list
           ./annapurna.py --help
