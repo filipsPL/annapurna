@@ -93,6 +93,10 @@ column -t output.kNN_modern.grouped.csv
 column -t output.kNN_modern.csv | less
 ```
 
+## AnnapuRNA in jupyter notebook
+
+to see or run AnnapuRNA in jupyter-notebook, refer to the [sample notebook](annapurna-example.ipynb) (please note that this is a notebook with a **bash** kernel).
+
 ## Usage
 
 ### Input files
