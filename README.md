@@ -5,6 +5,7 @@
 - [About](#about)
 - [Installation](#installation)
     - [Uninstallation](#uninstallation)
+    - [Tested environments](#tested-environments)
 - [Usage](#usage)
   - [Quick start](#quick-start)
   - [AnnapuRNA in action](#annapurna-in-action)
@@ -33,9 +34,9 @@
 
 # Installation
 
-Recommended way of AnnapuRNA installation and running is via conda environment.
+Recommended way of AnnapuRNA installation and running is via conda environment under Linux 64 bit (extensively tested on Ubuntu).
 
-1. Install conda.  Please refer to [conda manual](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) and install conda version according to your operating system. Please use Python2 version.
+1. Install miniconda.  Please refer to [conda manual](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) and install conda version according to your operating system. Please use Python2 version (miniconda2).
 2. Clone AnnapuRNA repository: `git clone --depth=1 git@github.com:filipsPL/annapurna.git` or [fetch a zip package](https://github.com/filipsPL/annapurna/archive/master.zip).
 3. Go to the AnnapuRNA directory (typically `cd annapurna` under linux) and restore the conda environment from the yml file `conda env create -f conda-environment.yml` (the complete AnnapuRNA conda environment needs ~1.5 GB of free disk space).
 
@@ -46,6 +47,12 @@ Recommended way of AnnapuRNA installation and running is via conda environment.
 1. Remove the directory with the AnnapuRNA code
 2. remove conda environment: `conda remove --name annapurna --all`.
 3. To verify that the environment was removed, in your terminal window run `conda info --envs`
+
+### Tested environments
+
+AnnapuRNA was extensively tested under Linux with Ubuntu versions 16.04, 18.04, and 20.04, with latest miniconda2 `Miniconda2-py27_4.8.3-Linux-x86_64.sh`.
+
+[![CI (conda)](https://github.com/filipsPL/annapurna/workflows/CI%20(conda)/badge.svg)](https://github.com/filipsPL/annapurna/actions?query=workflow%3A%22CI+%28conda%29%22)
 
 # Usage
 
