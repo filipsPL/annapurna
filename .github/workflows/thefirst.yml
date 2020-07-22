@@ -28,6 +28,7 @@ jobs:
           conda config --show channels
           conda env create -f conda-environment.yml
           conda init bash
+          source /home/runner/.bashrc
           conda activate annapurna
           conda list
           ./annapurna.py --help
