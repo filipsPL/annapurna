@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: install miniconda
+      - name: install miniconda and run tests
         shell: bash
         run: |
           wget --quiet https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-x86_64.sh -O ~/miniconda.sh
@@ -46,6 +46,12 @@ jobs:
           echo "---------Run tests---------"
           ./annapurna.py --help
           ./annapurna-tests.sh
-          echo "---------flake8---------"
+      - name: Lint with flake8
+        shell: pwsh
+        run: |
+          # stop the build if there are Python syntax errors or undefined names
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # all Python files should follow PEP8 (except some notebooks, see setup.cfg)
+          flake8 jupytext tests
+          # exit-zero treats all errors as warnings.  The GitHub editor is 127 chars wide
           flake8 . --count --exit-zero --max-complexity=10 --statistics

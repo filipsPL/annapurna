@@ -69,6 +69,9 @@ compare
 # ------------------------------------------------------------------------- #
 
 ## killing the h2o server
-trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM EXIT
+if pgrep -f h2o &> /dev/null 2>&1; then
+  echo "h2o is running"
+  trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM EXIT
+fi
 
-conda deactivate
+#conda deactivate
