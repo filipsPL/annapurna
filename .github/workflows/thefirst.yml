@@ -21,7 +21,12 @@ jobs:
       - name: run test
         shell: pwsh
         run: |
-          wget https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-x86_64.sh -O ~/miniconda.sh
+          wget --quiet https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-x86_64.sh -O ~/miniconda.sh
           bash ~/miniconda.sh -b -p $HOME/miniconda
           conda env list
-          # ./annapurna-tests.sh
+          ls -la
+          cd annapurna
+          ls -la
+          conda env create -f conda-environment.yml
+          ./annapurna.py --help
+          ./annapurna-tests.sh
