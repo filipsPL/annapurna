@@ -1,4 +1,4 @@
-name: CI (conda)
+name: install and test
 on:
   push:
     paths:

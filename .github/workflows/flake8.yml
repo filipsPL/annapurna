@@ -1,4 +1,4 @@
-name: CI-flake8-python
+name: Flake8 python
 
 on:
   push:
