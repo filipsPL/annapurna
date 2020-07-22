@@ -5,7 +5,7 @@ channels:
 - conda-forge
 - defaults
 - r
-- pkgs/free
+- free
 dependencies:
 - openblas
 - future
