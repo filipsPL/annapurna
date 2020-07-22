@@ -7,30 +7,21 @@ on:
     - 'models/'
     - 'obrazki/'
     - 'data/'
-
 jobs:
   build:
     strategy:
       matrix:
         # os: ['ubuntu-latest', 'macos-latest', 'windows-latest']
         os: ['ubuntu-latest']
-        python-version: [2.7.14]
+        # python-version: [2.7.14]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup Miniconda
-        uses: goanpeca/setup-miniconda@v1
-        with:
-          auto-update-conda: true
-          auto-activate-base: false
-          # miniconda-version: 'latest'
-          miniconda-version: 'py27_4.8.3'
-          python-version: ${{ matrix.python-version }}
-          environment-file: conda-environment.yml
-          activate-environment: annapurna
       - name: run test
         shell: pwsh
         run: |
+          wget https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-x86_64.sh -O ~/miniconda.sh
+          bash ~/miniconda.sh -b -p $HOME/miniconda
           conda env list
-          ./annapurna-tests.sh
+          # ./annapurna-tests.sh
