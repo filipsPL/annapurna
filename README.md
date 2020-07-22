@@ -79,7 +79,19 @@ Output files:
 
 ## AnnapuRNA in action
 
-[![asciicast](https://asciinema.org/a/CWXtnXohdnlphVEoL4hnFmxTS.svg)](https://asciinema.org/a/CWXtnXohdnlphVEoL4hnFmxTS)
+[![asciicast](https://asciinema.org/a/uaX1tcmKyQGjFhUtMtMUwbp8Z.svg)](https://asciinema.org/a/uaX1tcmKyQGjFhUtMtMUwbp8Z)
+
+```bash
+# commands used in the screen cast
+conda activate annapurna
+./annapurna.py --help
+mkdir testresults
+./annapurna.py -r tests/testFiles/1AJU.pdb -l tests/testFiles/ARG.sdf -m kNN_modern -o testresults/output --groupby
+cd testresults
+ls -la
+column -t output.kNN_modern.grouped.csv
+column -t output.kNN_modern.csv | less
+```
 
 ## Usage
 
