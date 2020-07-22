@@ -9,7 +9,8 @@ jobs:
     strategy:
       matrix:
         # os: ['ubuntu-latest', 'macos-latest', 'windows-latest']
-        os: ['macos-latest']
+        # align-it in conda is only for linux 64 bit https://anaconda.org/bioconda/align_it/files
+        os: ['ubuntu-16.04', 'ubuntu-latest', 'ubuntu-20.04']
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
@@ -17,53 +18,28 @@ jobs:
       - name: install miniconda and run tests
         shell: bash
         run: |
-          if [[ "${{ runner.os }}" = "Linux" ]]; then
-            wget --quiet https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-x86_64.sh -O ~/miniconda.sh
-            bash ~/miniconda.sh -b -p $HOME/miniconda
-            conda env list
-            conda env create -f conda-environment.yml
-            conda init bash --dry-run --verbose
-            echo "Adding path"
-            export XDG_CONFIG_HOME=$HOME/.config
-            export PATH="$PATH:$HOME/.dotnet/tools"
-            export PATH="$PATH:$HOME/.config/composer/vendor/bin"
-            __conda_setup="$('/usr/share/miniconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-            if [ $? -eq 0 ]; then
-                eval "$__conda_setup"
-            else
-                if [ -f "/usr/share/miniconda/etc/profile.d/conda.sh" ]; then
-                    . "/usr/share/miniconda/etc/profile.d/conda.sh"
-                else
-                    export PATH="/usr/share/miniconda/bin:$PATH"
-                fi
-            fi
-            unset __conda_setup
-          elif [[ "${{ runner.os }}" = "macOS" ]]; then
-            wget --quiet https://repo.anaconda.com/miniconda/Miniconda2-latest-MacOSX-x86_64.sh -O ~/miniconda.sh
-            bash ~/miniconda.sh -b -p $HOME/miniconda
-            conda env list
-            sudo conda env create -f conda-environment.yml
-            sudo conda init bash --dry-run --verbose
-            echo "Adding path"
-            export XDG_CONFIG_HOME=$HOME/.config
-            export PATH="$PATH:$HOME/.dotnet/tools"
-            export PATH="$PATH:$HOME/.config/composer/vendor/bin"
-            __conda_setup="$('/usr/share/miniconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-            if [ $? -eq 0 ]; then
-                eval "$__conda_setup"
-            else
-                if [ -f "/usr/share/miniconda/etc/profile.d/conda.sh" ]; then
-                    . "/usr/share/miniconda/etc/profile.d/conda.sh"
-                else
-                    export PATH="/usr/share/miniconda/bin:$PATH"
-                fi
-            fi
-            unset __conda_setup
-          elif [[ "${{ runner.os }}" = "Windows" ]]; then
-            MINICONDA_FILENAME=Miniconda2-latest-Windows-x86_64.exe
-            curl -o $MINICONDA_FILENAME "https://repo.continuum.io/miniconda/$MINICONDA_FILENAME"
-            ./Miniconda3-latest-Windows-x86_64.exe //InstallationType=JustMe //RegisterPython=0 //S
+          echo "---------Fetching miniconda---------"
+          wget --quiet https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-x86_64.sh -O ~/miniconda.sh
+          bash ~/miniconda.sh -b -p $HOME/miniconda
+          echo "---------Setting up---------"
+          conda env list
+          conda env create -f conda-environment.yml
+          conda init bash --dry-run --verbose
+          echo "Adding path"
+          export XDG_CONFIG_HOME=$HOME/.config
+          export PATH="$PATH:$HOME/.dotnet/tools"
+          export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+          __conda_setup="$('/usr/share/miniconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+          if [ $? -eq 0 ]; then
+              eval "$__conda_setup"
+          else
+              if [ -f "/usr/share/miniconda/etc/profile.d/conda.sh" ]; then
+                  . "/usr/share/miniconda/etc/profile.d/conda.sh"
+              else
+                  export PATH="/usr/share/miniconda/bin:$PATH"
+              fi
           fi
+          unset __conda_setup
 
           echo "---------Activate---------"
           conda activate annapurna
