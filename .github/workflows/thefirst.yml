@@ -47,5 +47,6 @@ jobs:
       - name: run tests
         shell: bash
         run: |
+          conda activate annapurna
           ./annapurna.py --help
-          # ./annapurna-tests.sh
+          ./annapurna-tests.sh
