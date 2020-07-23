@@ -1,4 +1,4 @@
-![](obrazki/README-2f55bb45.png)
+![](obrazki/AnnapuRNA-logo.png)
 
 <!-- TOC START min:1 max:5 link:true asterisk:false update:true -->
 - [About](#about)
