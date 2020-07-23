@@ -27,6 +27,7 @@
   - [Known limitations and issues](#known-limitations-and-issues)
     - [Installation](#installation-1)
 - [About the name](#about-the-name)
+- [Contact](#contact)
 - [Software used](#software-used)
 <!-- TOC END -->
 
@@ -336,6 +337,15 @@ AnnapuRNA was tested on the outputs from the following docking programs:
 # About the name
 
 **Annapurna** (/ˌænəˈpʊərnəˌ -ˈpɜːr-/; Sanskrit, Nepali, Newar: अन्नपूर्णा) is a massif in the Himalayas in north-central Nepal that includes one peak over 8,000 metres (26,000 ft), thirteen peaks over 7,000 metres (23,000 ft), and sixteen more over 6,000 metres (20,000 ft). The massif is 55 kilometres (34 mi) long, and is bounded by the Kali Gandaki Gorge on the west, the Marshyangdi River on the north and east, and by Pokhara Valley on the south. At the western end, the massif encloses a high basin called the Annapurna Sanctuary. The highest peak of the massif, Annapurna I Main, is the tenth highest mountain in the world at 8,091 metres (26,545 ft) above sea level. Maurice Herzog led a French expedition to its summit through the north face in 1950, making it the first of the eight-thousanders to be climbed and the only 8,000 meter-peak to be conquered on the first try. [From Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Annapurna_Massif).
+
+# Contact
+
+Laboratory of Bioinformatics and Protein Engineering
+International Institute of Molecular and Cell Biology in Warsaw
+ul. Ks. Trojdena 4, 02-109 ​Warsaw, Poland
+
+Head of the Laboratory: Janusz M. Bujnicki iamb@genesilico.pl
+
 
 # Software used
 
