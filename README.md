@@ -147,14 +147,26 @@ or even all available models:
 ```bash
 ./annapurna.py -r tests/testFiles/1AJU.pdb -l tests/testFiles/ARG.sdf -m ALL -o testresults/output --groupby
 ```
-
 Please pay attention to the optional argument `--merge` - which merges predictions from multiple models into a single file.
 
 In addition to those four models, we provide two models of interactions: NB_modern (Naive Bayes) and RF_modern (Random Forests), both trained on 2016 data set (but please note, that the performance wasn't thoroughly tested).
 
 ### Clustering
 
-AnnapuRNA implements three optional algorithms for poses clustering.
+The clustering of poses is based on the RMSD distance matrix. We implemented three clustering algorithms that take the RMSD distance matrix as an input, namely "AutoDock-like" method (as implemented in the AutoDock/AutoDock Vina), "SimRNA-like" method (as implemented in ROSETTA/SimRNA programs), and Affinity Propagation method.
+
+```
+--clustering_method {False,AD,SR,AP}
+                      Clustering method. AD = AutoDock-like; SR = SimRNA-
+                      like; AP = Affinity Propagation.
+--cluster_fraction CLUSTERINGFRACTION
+                      Docking poses clustering. Select this fraction of top
+                      scoring poses. 0-1. 0 = do not cluster results
+--cluster_cutoff CLUSTERINGCUTOFF
+                      Docking poses clustering. Use this RMSD cutoff for
+                      clustering. 0 = do not use the RMSD cutoff
+```
+
 
 
 ### Other options
@@ -311,10 +323,10 @@ score and the original pose number are stored the sdf fields, e.g.:
 ./annapurna.py -r tests/testFiles/1AJU.pdb -l tests/testFiles/ARG.sdf -m kNN_basic -m kNN_modern -o testresults/output  -s --overwrite --groupby --merge --cluster_fraction 1.0 --cluster_cutoff 2.0 --clustering_method AD
 ```
 
-- score docking results with kNN_modern method, output data to `testresults` directory, overwrite if files exist. After scoring perform clustering with SRAP method, for 50% top scoring poses (`--cluster_fraction 0.5`). Also generate a single file with best pose for each compound (`--groupby`) and each method (`--merge`).
+- score docking results with kNN_modern method, output data to `testresults` directory, overwrite if files exist. After scoring perform clustering with AP method, for 50% top scoring poses (`--cluster_fraction 0.5`). Also generate a single file with best pose for each compound (`--groupby`) and each method (`--merge`).
 
 ```
-./annapurna.py -r tests/testFiles/1AJU.pdb -l tests/testFiles/ARG.sdf -m kNN_modern -o testresults/output  -s --overwrite --groupby --merge --cluster_fraction 0.5 --clustering_method SRAP
+./annapurna.py -r tests/testFiles/1AJU.pdb -l tests/testFiles/ARG.sdf -m kNN_modern -o testresults/output  -s --overwrite --groupby --merge --cluster_fraction 0.5 --clustering_method AP
 ```
 
 
@@ -357,6 +369,6 @@ During development of the AnnapuRNA we used a number of freely available package
 - [pandas](https://pandas.pydata.org/) - a fast, powerful, flexible and easy to use open source data analysis and manipulation tool
 - Machine learning:
   - [scikit-learn](https://scikit-learn.org/stable/) - Machine Learning in Python
-  - [h2o](https://www.h2o.ai/products/h2o/) from h2o.ai - version [3.9.1.3501](http://h2o-release.s3.amazonaws.com/h2o/master/3501/index.html) - a fully open source, distributed in-memory machine learning platform with linear scalability.
+  - [h2o](https://www.h2o.ai/products/h2o/) from h2o.ai - version [3.9.1.3501](http://h2o-release.s3.amazonaws.com/h2o/master/3501/index.html) - a fully open source, distributed in-memory machine learning platform with linear scalability. H2O is licensed with the Apache 2.0 open source license.
 - [rna-tools](https://github.com/mmagnus/rna-tools) (formerly: rna-pdb-tools) by @mmagnus -  a toolbox to analyze sequences, structures and simulations of RNA
 - [seaborn](https://seaborn.pydata.org/) - statistical data visualization

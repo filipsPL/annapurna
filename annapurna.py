@@ -61,8 +61,8 @@ def parse_options():
     group = parser.add_argument_group('optional arguments')
 
     # WARNING adjust default values to the benchmark best results.
-    group.add_argument("--clustering_method", dest="ClusteringMethod", default=False, choices=[False, 'SRAP','AD', 'SRDC'],
-                      help="Clustering method. SRAP = SimRNA style with Affinity Propagation; SRDC = SimRNA style with Distance Cutoff; AD = AutoDock style.")
+    group.add_argument("--clustering_method", dest="ClusteringMethod", default=False, choices=[False, 'AD','SR', 'AP'],
+                      help="Clustering method. AD = AutoDock-like; SR = SimRNA-like; AP = Affinity Propagation.")
 
     group.add_argument("--cluster_fraction", dest="ClusteringFraction", default=0, type=float,
                       help="Docking poses clustering. Select this fraction of top scoring poses. 0-1. 0 = do not cluster results")
@@ -975,11 +975,11 @@ def cluster(outputScore, sdffile, ClusteringMethod, topFraction, rmsdCutoff, out
       ##############################################
       ## SimRNA style clustering with Affinity AffinityPropagation	# Enter Sandman
       ##############################################
-      elif ClusteringMethod == 'SRAP':
-        print info.info + "SRAP Clustering..."
+      elif ClusteringMethod == 'AP':
+        print info.info + "AP Clustering..."
         from sklearn.cluster import AffinityPropagation	# for clustering
 
-        outputFilenameSDF = "%s_clusters__%s_TOP%s_SRAP_representatives.sdf" % (outputFilename, modelName, topFraction)
+        outputFilenameSDF = "%s_clusters__%s_TOP%s_AP_representatives.sdf" % (outputFilename, modelName, topFraction)
 
         selectedMolecules = pd.DataFrame(data=None, columns=scoresAndMolecules.columns)
         rmsdMatrix = calculateRmsdMatrix(scoresAndMolecules)
@@ -1048,10 +1048,10 @@ def cluster(outputScore, sdffile, ClusteringMethod, topFraction, rmsdCutoff, out
       ##############################################
       ## SimRNA style clustering with distance cutoff
       ##############################################
-      elif ClusteringMethod == 'SRDC':
-        print info.info + "SRDC Clustering..."
+      elif ClusteringMethod == 'SR':
+        print info.info + "SR Clustering..."
 
-        outputFilenameSDF = "%s_clusters__%s_TOP%s_RMSD%s_SRDC_representatives.sdf" % (outputFilename, modelName, topFraction, rmsdCutoff)
+        outputFilenameSDF = "%s_clusters__%s_TOP%s_RMSD%s_SR_representatives.sdf" % (outputFilename, modelName, topFraction, rmsdCutoff)
 
         selectedMolecules = pd.DataFrame(data=None, columns=scoresAndMolecules.columns)
         rmsdMatrix = calculateRmsdMatrix(scoresAndMolecules)
@@ -1137,7 +1137,7 @@ def cluster(outputScore, sdffile, ClusteringMethod, topFraction, rmsdCutoff, out
           selectedMoleculesGlobal = pd.concat([selectedMoleculesGlobal, selectedMolecules])
 
       #print selectedMoleculesGlobal
-      #koniec SRDC
+      #koniec SR
 
 
   # save diversified molecules
