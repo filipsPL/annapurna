@@ -3,6 +3,7 @@
 <!-- TOC START min:1 max:5 link:true asterisk:false update:true -->
 - [About](#about)
 - [Installation](#installation)
+    - [Tests](#tests)
     - [Uninstallation](#uninstallation)
     - [Tested environments](#tested-environments)
 - [Usage](#usage)
@@ -46,6 +47,10 @@ Recommended way of AnnapuRNA installation and running is via conda environment u
 1. Install miniconda.  Please refer to [conda manual](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) and install conda version according to your operating system. Please use Python2 version (miniconda2).
 2. Clone AnnapuRNA repository: `git clone --depth=1 git@github.com:filipsPL/annapurna.git` or [fetch a zip package](https://github.com/filipsPL/annapurna/archive/master.zip).
 3. Go to the AnnapuRNA directory (typically `cd annapurna` under linux) and restore the conda environment from the yml file `conda env create -f conda-environment.yml` (the complete AnnapuRNA conda environment needs ~1.5 GB of free disk space).
+
+### Tests
+
+To validate the installation and run tests, please execute `annapurna-tests.sh`.
 
 ### Uninstallation
 
@@ -258,6 +263,8 @@ The component probabilities can be transformed by applying PMF-like transformati
 By default, this is turned off.
 
 ### Program fine-tuning (advanced users only!)
+
+:no_pedestrians:  :no_entry: For a normal use, there is no need to change settings listed below, so please modify it only if you know what you are doing  :boom:
 
 #### Scoring huge docking files
 
