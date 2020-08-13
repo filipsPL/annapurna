@@ -264,11 +264,11 @@ By default, this is turned off.
 
 ### Program fine-tuning (advanced users only!)
 
-:no_pedestrians:  :no_entry: For a normal use, there is no need to change settings listed below, so please modify it only if you know what you are doing  :boom:
+:no_pedestrians:  :no_entry: For normal use, there is no need to change settings listed below, so please modify it only if you know what you are doing  :boom:
 
 #### Scoring huge docking files
 
-When working with a very big docking files and/or operating on a hardware with limited memory, it may be necesarry to adjust the `chunksize` parameter in the program:
+When working with very big docking files and/or operating on hardware with limited memory, it may be necessary to adjust the chunksize parameter in the program::
 
 `chunksize = 2000000		# adjust according to the available RAM memory`
 
@@ -383,7 +383,7 @@ AnnapuRNA was tested on the outputs from the following docking programs:
 
 ### Installation
 
-**installation under Windows and MacOS.**. It should be possible to use AnnapuRNA with conda environment under Windows and MacOS. The limitation is the availability of the Align-it program in the conda channel - currently it is available only for linux, thus user has to obtain and compile the program independently (the source code and instructions [are available here](http://silicos-it.be.s3-website-eu-west-1.amazonaws.com/software/align-it/1.0.4/align-it.html)).
+**installation under Windows and MacOS.**. It should be possible to use AnnapuRNA with conda environment under Windows and MacOS. The limitation is the availability of the Align-it program in the conda channel - currently, it is available only for Linux, thus the user has to obtain and compile the program independently (the source code and instructions [are available here](http://silicos-it.be.s3-website-eu-west-1.amazonaws.com/software/align-it/1.0.4/align-it.html)).
 
 # About the name
 
@@ -400,7 +400,7 @@ Head of the Laboratory: Janusz M. Bujnicki iamb@genesilico.pl
 
 # Software used
 
-During development of the AnnapuRNA we used a number of freely available packages for scietific computations. Here we acknowledge and thanks:
+During the development of the AnnapuRNA, we used several freely available packages for scientific computations. Here we acknowledge and thanks:
 
 - [Biopython](https://biopython.org/) - a set of freely available tools for biological computation written in Python
 - [openbabel](https://github.com/openbabel/openbabel) - a chemical toolbox designed to speak the many languages of chemical data
