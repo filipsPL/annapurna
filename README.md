@@ -21,6 +21,7 @@
       - [Scoring huge docking files](#scoring-huge-docking-files)
       - [Running H2O server on another machine](#running-h2o-server-on-another-machine)
       - [Calculate the centroid of the cluster](#calculate-the-centroid-of-the-cluster)
+      - [Tuning parameters of the Affinity Propagation clustering method](#tuning-parameters-of-the-affinity-propagation-clustering-method)
     - [Output files](#output-files)
     - [Usage examples](#usage-examples)
   - [Docking programs](#docking-programs)
@@ -153,20 +154,39 @@ In addition to those four models, we provide two models of interactions: NB_mode
 
 ### Clustering
 
-The clustering of poses is based on the RMSD distance matrix. We implemented three clustering algorithms that take the RMSD distance matrix as an input, namely "AutoDock-like" method (as implemented in the AutoDock/AutoDock Vina), "SimRNA-like" method (as implemented in ROSETTA/SimRNA programs), and Affinity Propagation method.
+The clustering of poses is optional and is based on the RMSD distance matrix. We implemented three clustering algorithms that take the RMSD distance matrix as an input, namely "AutoDock-like" method (as implemented in the AutoDock/AutoDock Vina) - **AD**, "SimRNA-like" method (as implemented in ROSETTA/SimRNA programs) - **SR**, and Affinity Propagation method (**AP**).
+
+There are three switches defining clustering parameters:
+
+
+- choosing a clustering method:
 
 ```
 --clustering_method {False,AD,SR,AP}
                       Clustering method. AD = AutoDock-like; SR = SimRNA-
                       like; AP = Affinity Propagation.
+```
+
+
+- defining, how many of top scoring poses will be taken for clustering. 1 = all poses, 0.5 = 50% of the best poses etc.:
+
+```
 --cluster_fraction CLUSTERINGFRACTION
                       Docking poses clustering. Select this fraction of top
                       scoring poses. 0-1. 0 = do not cluster results
+```
+
+
+- for AD = AutoDock-like and SR = SimRNA-like clustering methods, define a clustering cut off. 2 Å should be a reasonable starting point.
+```
 --cluster_cutoff CLUSTERINGCUTOFF
                       Docking poses clustering. Use this RMSD cutoff for
                       clustering. 0 = do not use the RMSD cutoff
 ```
 
+For examples, go to the [Usage examples](#usage-examples) section.
+
+For fine-tuning the Affinity Propagation method, go to the [Program fine-tuning](#program-fine-tuning-advanced-users-only) section.
 
 
 ### Other options
@@ -257,6 +277,18 @@ By default, AnnapuRNA assumes the H2O ML server is running on the same computer 
 Enabling centroid calculation for clusters - change `averageStructure` variable to `True`:
 
 `averageStructure = False # default`
+
+
+#### Tuning parameters of the Affinity Propagation clustering method
+
+AP clustering is defined around line 991, with:
+
+```python
+af = AffinityPropagation(affinity="precomputed").fit(rmsdMatrix)
+```
+
+For the available options, refer to the [scikit-learn manual](https://scikit-learn.org/0.17/modules/generated/sklearn.cluster.AffinityPropagation.html#sklearn.cluster.AffinityPropagation).
+
 
 ### Output files
 
