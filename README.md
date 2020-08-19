@@ -29,8 +29,10 @@
   - [Known limitations and issues](#known-limitations-and-issues)
     - [Installation](#installation-1)
 - [About the name](#about-the-name)
-- [Contact](#contact)
+- [Additional data](#additional-data)
 - [Software used](#software-used)
+- [How to cite](#how-to-cite)
+- [Contact](#contact)
 <!-- TOC END -->
 
 
@@ -389,14 +391,9 @@ AnnapuRNA was tested on the outputs from the following docking programs:
 
 **Annapurna** (/ˌænəˈpʊərnəˌ -ˈpɜːr-/; Sanskrit, Nepali, Newar: अन्नपूर्णा) is a massif in the Himalayas in north-central Nepal that includes one peak over 8,000 metres (26,000 ft), thirteen peaks over 7,000 metres (23,000 ft), and sixteen more over 6,000 metres (20,000 ft). The massif is 55 kilometres (34 mi) long, and is bounded by the Kali Gandaki Gorge on the west, the Marshyangdi River on the north and east, and by Pokhara Valley on the south. At the western end, the massif encloses a high basin called the Annapurna Sanctuary. The highest peak of the massif, Annapurna I Main, is the tenth highest mountain in the world at 8,091 metres (26,545 ft) above sea level. Maurice Herzog led a French expedition to its summit through the north face in 1950, making it the first of the eight-thousanders to be climbed and the only 8,000 meter-peak to be conquered on the first try. [From Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Annapurna_Massif).
 
-# Contact
+# Additional data
 
-Laboratory of Bioinformatics and Protein Engineering
-International Institute of Molecular and Cell Biology in Warsaw
-ul. Ks. Trojdena 4, 02-109 ​Warsaw, Poland
-
-Head of the Laboratory: Janusz M. Bujnicki iamb@genesilico.pl
-
+For additional data presented in the manuscript, please go to  :octocat: [the supporting repository](https://github.com/filipsPL/annapurna-additional).
 
 # Software used
 
@@ -411,3 +408,16 @@ During the development of the AnnapuRNA, we used several freely available packag
   - [h2o](https://www.h2o.ai/products/h2o/) from h2o.ai - version [3.9.1.3501](http://h2o-release.s3.amazonaws.com/h2o/master/3501/index.html) - a fully open source, distributed in-memory machine learning platform with linear scalability. H2O is licensed with the Apache 2.0 open source license.
 - [rna-tools](https://github.com/mmagnus/rna-tools) (formerly: rna-pdb-tools) by @mmagnus -  a toolbox to analyze sequences, structures and simulations of RNA
 - [seaborn](https://seaborn.pydata.org/) - statistical data visualization
+
+
+# How to cite
+
+tba.
+
+# Contact
+
+Laboratory of Bioinformatics and Protein Engineering
+International Institute of Molecular and Cell Biology in Warsaw
+ul. Ks. Trojdena 4, 02-109 ​Warsaw, Poland
+
+Head of the Laboratory: Janusz M. Bujnicki iamb@genesilico.pl
