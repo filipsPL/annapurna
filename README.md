@@ -31,6 +31,7 @@
 - [About the name](#about-the-name)
 - [Additional data](#additional-data)
 - [Software used](#software-used)
+- [License](#license)
 - [How to cite](#how-to-cite)
 - [Contact](#contact)
 <!-- TOC END -->
@@ -409,10 +410,13 @@ During the development of the AnnapuRNA, we used several freely available packag
 - [rna-tools](https://github.com/mmagnus/rna-tools) (formerly: rna-pdb-tools) by @mmagnus -  a toolbox to analyze sequences, structures and simulations of RNA
 - [seaborn](https://seaborn.pydata.org/) - statistical data visualization
 
+# License
+
+This program is distributed under GNU Lesser General Public License Version 3, 29 June 2007. See the [license](LICENSE) for the details.
 
 # How to cite
 
-tba.
+Filip Stefaniak, Janusz M. Bujnicki, AnnapuRNA: a scoring function for predicting RNA-small molecule interactions.
 
 # Contact
 
