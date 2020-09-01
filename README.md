@@ -207,6 +207,8 @@ For fine-tuning the Affinity Propagation method, go to the [Program fine-tuning]
 
 ### Advanced options
 
+Usually, there is *no need* to modify these settings.
+
 **Ligand contribution weight term**
 
 ```
