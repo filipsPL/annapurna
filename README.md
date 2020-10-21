@@ -133,8 +133,6 @@ AnnapuRNA accepts many file formats, such as sdf, mol2, mol, pdb, or any other [
 Remarks:
 - If your input file contains more than one compound (i.e., chemical compound with unique structure), please make sure that each of compounds has an unique name/title.
 - Please make sure that the ligands have the desired protonation state.
-- There are no need to hydrogenize compounds (add hydrogens), as the AnnapuRNA does it internally.
-
 
 ### Scoring models
 
@@ -307,13 +305,13 @@ For the available options, refer to the [scikit-learn manual](https://scikit-lea
 
 #### Adding H atoms to the ligand
 
-The program by default adds polar hydrogens to the ligand molecule(s). This is done in two steps: 1) removing all hydrogens and 2) adding polar hydrogens. This behaviour can be modified by editing the code around lines 355-358:
+One can modify the AnnapuRNA code to add polar hydrogens to the ligand molecule(s). This feature can be modified by editing the code around lines 355-358:
 
 ```python
 # remove all hydrogens
-obmol.DeleteHydrogens()
+# obmol.DeleteHydrogens()
 # and add polar only
-obmol.AddHydrogens(True)
+# obmol.AddHydrogens(True)
 ```
 
 Please see the OpenBabel API manual for details: http://openbabel.org/dev-api/classOpenBabel_1_1OBMol.shtml

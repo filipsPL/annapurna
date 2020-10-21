@@ -358,9 +358,9 @@ def calculate_ligands_energy(ligandFile, outputFilename):
         # NumAtoms () NumHvyAtoms () GetMolWt (bool implicitH=true)	see: http://openbabel.org/dev-api/classOpenBabel_1_1OBMol.shtml
 
         # remove all hydrogens
-        obmol.DeleteHydrogens()
+        # obmol.DeleteHydrogens()
         # and add polar only
-        obmol.AddHydrogens(True)
+        # obmol.AddHydrogens(True)
 
         # Setup the molecule. This assigns atoms types, charges and parameters
         if ff.Setup(obmol) == 0:

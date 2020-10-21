@@ -17,7 +17,7 @@ function compare {
     else
       echo "\e[41mDifferent!\e[49m"
       diff -y -W 175 $f $newFile
-      # exit 1
+      exit 1
     fi
 
   done
