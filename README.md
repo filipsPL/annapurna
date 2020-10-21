@@ -418,7 +418,7 @@ This program is distributed under GNU Lesser General Public License Version 3, 2
 
 # How to cite
 
-Filip Stefaniak, Janusz M. Bujnicki, AnnapuRNA: a scoring function for predicting RNA-small molecule interactions.
+Filip Stefaniak, Janusz M. Bujnicki, AnnapuRNA: a scoring function for predicting RNA-small molecule interactions, bioRxiv 2020.09.08.287136; doi: https://doi.org/10.1101/2020.09.08.287136 
 
 # Contact
 
