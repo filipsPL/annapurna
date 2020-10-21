@@ -23,6 +23,7 @@
       - [Running H2O server on another machine](#running-h2o-server-on-another-machine)
       - [Calculate the centroid of the cluster](#calculate-the-centroid-of-the-cluster)
       - [Tuning parameters of the Affinity Propagation clustering method](#tuning-parameters-of-the-affinity-propagation-clustering-method)
+      - [Adding H atoms to the ligand](#adding-h-atoms-to-the-ligand)
     - [Output files](#output-files)
     - [Usage examples](#usage-examples)
   - [Docking programs](#docking-programs)
@@ -129,7 +130,10 @@ pdb files fetched from the Protein Data Bank should be fine.
 
 AnnapuRNA accepts many file formats, such as sdf, mol2, mol, pdb, or any other [understood by the OpenBabel](http://openbabel.org/docs/current/FileFormats/Overview.html). Extensively tested on sdf files.
 
-If your input file contains more than one compound (i.e., chemical compound with unique structure), please make sure that each of compounds has an unique name/title.
+Remarks:
+- If your input file contains more than one compound (i.e., chemical compound with unique structure), please make sure that each of compounds has an unique name/title.
+- Please make sure that the ligands have the desired protonation state.
+- There are no need to hydrogenize compounds (add hydrogens), as the AnnapuRNA does it internally.
 
 
 ### Scoring models
@@ -301,6 +305,20 @@ af = AffinityPropagation(affinity="precomputed").fit(rmsdMatrix)
 
 For the available options, refer to the [scikit-learn manual](https://scikit-learn.org/0.17/modules/generated/sklearn.cluster.AffinityPropagation.html#sklearn.cluster.AffinityPropagation).
 
+#### Adding H atoms to the ligand
+
+The program by default adds polar hydrogens to the ligand molecule(s). This is done in two steps: 1) removing all hydrogens and 2) adding polar hydrogens. This behaviour can be modified by editing the code around lines 355-358:
+
+```python
+# remove all hydrogens
+obmol.DeleteHydrogens()
+# and add polar only
+obmol.AddHydrogens(True)
+```
+
+Please see the OpenBabel API manual for details: http://openbabel.org/dev-api/classOpenBabel_1_1OBMol.shtml
+
+Manipulating the hydrogentaion process may affect calculation of the ligand term of the total score (and thus the total score).
 
 ### Output files
 
@@ -418,7 +436,7 @@ This program is distributed under GNU Lesser General Public License Version 3, 2
 
 # How to cite
 
-Filip Stefaniak, Janusz M. Bujnicki, AnnapuRNA: a scoring function for predicting RNA-small molecule interactions, bioRxiv 2020.09.08.287136; doi: https://doi.org/10.1101/2020.09.08.287136 
+Filip Stefaniak, Janusz M. Bujnicki, AnnapuRNA: a scoring function for predicting RNA-small molecule interactions, bioRxiv 2020.09.08.287136; doi: https://doi.org/10.1101/2020.09.08.287136
 
 # Contact
 
