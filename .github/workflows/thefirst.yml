@@ -3,6 +3,7 @@ on:
   push:
     paths:
     - '**.py'
+    - '**.sh'
     - '.github/workflows/thefirst.yml'
 jobs:
   build:
