@@ -51,8 +51,14 @@ averageStructure = False # default
 
 #---------------------------------------------------------#
 
+program_description="""AnnapuRNA: a scoring function for predicting RNA-small molecule binding poses.
+For tutorial please see: https://github.com/filipsPL/annapurna/
+
+This program is distributed under GNU Lesser General Public License Version 3, 29 June 2007.
+"""
+
 def parse_options():
-    parser = argparse.ArgumentParser(description='AnnapuRNA: Coarese Grained Scoring Function for RNA-Ligand Complexes', add_help=False )
+    parser = argparse.ArgumentParser(description="", add_help=False )
 
     group = parser.add_argument_group('required arguments')
 
@@ -1560,6 +1566,9 @@ def mergeOutputFiles(outputFilename, models, groupByName = False):
 #-----------------------------------------------------------------------------------------------------------------------------#
 
 if __name__ == "__main__":
+
+    print program_description
+
     args = parse_options()
 
     ## general options check
