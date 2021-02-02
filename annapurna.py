@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 
 # Filip Stefaniak, Janusz M. Bujnicki,
-# AnnapuRNA: a scoring function for predicting RNA-small molecule interactions,
-# bioRxiv 2020.09.08.287136; doi: https://doi.org/10.1101/2020.09.08.287136
-# https://github.com/filipspl/AnnapuRNA
+# Citation: Stefaniak F, Bujnicki JM (2021) AnnapuRNA: A scoring function for
+# predicting RNA-small molecule binding poses. PLoS Comput Biol 17(2): e1008309.
+# https://doi.org/10.1371/journal.pcbi.1008309
+
 
 import sys, getopt
 import argparse
@@ -55,6 +56,10 @@ program_description="""AnnapuRNA: a scoring function for predicting RNA-small mo
 For tutorial please see: https://github.com/filipsPL/annapurna/
 
 This program is distributed under GNU Lesser General Public License Version 3, 29 June 2007.
+
+Citation: Stefaniak F, Bujnicki JM (2021) AnnapuRNA: A scoring function for predicting
+RNA-small molecule binding poses. PLoS Comput Biol 17(2): e1008309.
+https://doi.org/10.1371/journal.pcbi.1008309
 """
 
 def parse_options():
