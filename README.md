@@ -34,6 +34,7 @@
 - [Software used](#software-used)
 - [License](#license)
 - [How to cite](#how-to-cite)
+- [Funding](#funding)
 - [Contact](#contact)
 <!-- TOC END -->
 
@@ -434,7 +435,13 @@ This program is distributed under GNU Lesser General Public License Version 3, 2
 
 # How to cite
 
-Filip Stefaniak, Janusz M. Bujnicki, AnnapuRNA: a scoring function for predicting RNA-small molecule interactions, bioRxiv 2020.09.08.287136; doi: https://doi.org/10.1101/2020.09.08.287136
+Stefaniak F, Bujnicki JM (2021) AnnapuRNA: A scoring function for predicting RNA-small molecule binding poses. PLoS Comput Biol 17(2): e1008309. https://doi.org/10.1371/journal.pcbi.1008309
+
+<s>Filip Stefaniak, Janusz M. Bujnicki, AnnapuRNA: a scoring function for predicting RNA-small molecule interactions, bioRxiv 2020.09.08.287136; doi: https://doi.org/10.1101/2020.09.08.287136</s>
+
+# Funding
+
+Funding: This research was supported by the Foundation for Polish Science and the EU European Regional Development Fund (POIR.04.04.00-00-3CF0/16 to J.M.B.). https://www.fnp.org.pl/ The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.
 
 # Contact
 
