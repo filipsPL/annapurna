@@ -3,9 +3,11 @@
 <!-- TOC START min:1 max:5 link:true asterisk:false update:true -->
 - [About](#about)
 - [Installation](#installation)
+  - [conda python environment](#conda-python-environment)
     - [Tests](#tests)
     - [Uninstallation](#uninstallation)
     - [Tested environments](#tested-environments)
+  - [Singularity image](#singularity-image)
 - [Usage](#usage)
   - [Quick start](#quick-start)
   - [AnnapuRNA in action](#annapurna-in-action)
@@ -47,6 +49,8 @@
 
 # Installation
 
+## conda python environment
+
 Recommended way of AnnapuRNA installation and running is via conda environment under Linux 64 bit (extensively tested on Ubuntu).
 
 1. Install miniconda.  Please refer to [conda manual](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) and install conda version according to your operating system. Please use Python2 version (miniconda2).
@@ -72,6 +76,18 @@ AnnapuRNA was extensively tested under Linux with Ubuntu versions 16.04, 18.04, 
 [![install and test](https://github.com/filipsPL/annapurna/workflows/install%20and%20test/badge.svg)](https://github.com/filipsPL/annapurna/actions?query=workflow%3A%22install+and+test%22)
 
 [![Flake8 python](https://github.com/filipsPL/annapurna/workflows/Flake8%20python/badge.svg)](https://github.com/filipsPL/annapurna/actions?query=workflow%3A%22Flake8+python%22)
+
+
+## Singularity image
+
+Singularity image with the fineRNAt fast version (containing fast kNN and RF scoring functions) is available in the sylabs cloud: [cloud.sylabs.io](https://cloud.sylabs.io/library/filips/default/annapurna).
+
+To fetch the latest image directly, run:
+
+```
+singularity pull library://filips/default/annapurna:latest
+```
+
 
 # Usage
 
