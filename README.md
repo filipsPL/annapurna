@@ -10,6 +10,7 @@
   - [Singularity image](#singularity-image)
 - [Usage](#usage)
   - [Quick start](#quick-start)
+    - [Singularity image](#singularity-image-1)
   - [AnnapuRNA in action](#annapurna-in-action)
   - [AnnapuRNA in Jupyter Notebook](#annapurna-in-jupyter-notebook)
   - [Usage](#usage-1)
@@ -104,6 +105,15 @@ mkdir testresults
 
 Output files:
 - Table with scores: `testresults/output.kNN_modern.csv` (scores for all poses) and `testresults/output.kNN_modern.grouped.csv` (best score for each compound from the input file). The AnnapuRNA score is in the last column ("score"). The lower value, the better.
+
+
+### Singularity image
+
+Usage of AnnapuRNA in singularity container is the same as the standalone console version. Please note that the container has a fast version of the scoring function implemented, i.e., kNN and RF. For DL scoring functions, please use the regular version.
+
+```
+singularity exec annapurna.sif annapurna.py -r tests/testFiles/1AJU.pdb -l tests/testFiles/ARG.sdf -m kNN_modern -o testresults/output --groupby
+```
 
 ## AnnapuRNA in action
 
