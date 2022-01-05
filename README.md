@@ -80,7 +80,7 @@ AnnapuRNA was extensively tested under Linux with Ubuntu versions 16.04, 18.04, 
 
 ## Singularity image
 
-Singularity image with the fineRNAt fast version (containing fast kNN and RF scoring functions) is available in the sylabs cloud: [cloud.sylabs.io](https://cloud.sylabs.io/library/filips/default/annapurna).
+Singularity image with the AnnapuRNA fast version (containing fast kNN and RF scoring functions) is available in the sylabs cloud: [cloud.sylabs.io](https://cloud.sylabs.io/library/filips/default/annapurna).
 
 To fetch the latest image directly, run:
 
