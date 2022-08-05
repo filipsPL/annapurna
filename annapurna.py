@@ -1289,7 +1289,7 @@ def scoreLoop(infile, outputFilename, models, sdffile, ClusteringMethod, Cluster
           score(statComplexGrouped, modelName, tempFilename = outputFilename + ".scores.tmp")
 
           # WARNING - tu może zrobić chunks?
-          output = pd.read_csv(outputFilename + ".scores.tmp", delimiter=",")
+          output = pd.read_csv(outputFilename + ".scores.tmp", delimiter=",", dtype={"compound": 'str'}) # address the issue #3
 
           os.remove(outputFilename + ".scores.tmp") # delete the temp file
 
