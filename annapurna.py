@@ -1266,7 +1266,7 @@ def scoreLoop(infile, outputFilename, models, sdffile, ClusteringMethod, Cluster
       '''For each supplied model in models[] loop over data form infile, predict probabilities and save it in outputFilename '''
       printMemInfo()
       print info.info + "Reading statistics file..."
-      statComplex = pd.read_csv(infile, delimiter="\t")
+      statComplex = pd.read_csv(infile, delimiter="\t", dtype={"compound": 'str'})
       printMemInfo()
       print info.info + "Grouping..."
       statComplexGrouped = statComplex.groupby(['base', 'at2', 'atom_type'])
@@ -1274,7 +1274,7 @@ def scoreLoop(infile, outputFilename, models, sdffile, ClusteringMethod, Cluster
       printMemInfo()
 
       print info.info + "Reading Energy data..."
-      E_ligand = pd.read_csv(outputFilename + ".ligand_energy.csv.bz2", delimiter=",")
+      E_ligand = pd.read_csv(outputFilename + ".ligand_energy.csv.bz2", delimiter=",", dtype={"compound": 'str'})
 
 
       for modelName in models:
@@ -1529,7 +1529,7 @@ def mergeOutputFiles(outputFilename, models, groupByName = False):
       for modelName in models:
           outfile = outputFilename + "." + modelName + ".csv"
           print info.info + "Processing file:", outfile
-          data = pd.read_csv(outfile, delimiter="\t")
+          data = pd.read_csv(outfile, delimiter="\t", dtype={"compound": 'str'})
           data = data.ix[:, ['compoundId', 'compound', 'score'] ]			# last number - the column with the actual score
           data = data.rename(columns={'score': 'AnnapuRNA Score:' + modelName})
 
@@ -1543,7 +1543,7 @@ def mergeOutputFiles(outputFilename, models, groupByName = False):
           if groupByName == True:
                 outfileGrouped = outputFilename + "." + modelName + ".grouped.csv"
                 print info.info + "Processing file:", outfileGrouped
-                dataGrouped = pd.read_csv(outfileGrouped, delimiter="\t")
+                dataGrouped = pd.read_csv(outfileGrouped, delimiter="\t", dtype={"compound": 'str'})
                 dataGrouped = dataGrouped.ix[:, ['compoundId', 'compound', 'score'] ]
                 dataGrouped = dataGrouped.reindex_axis(['compound', 'compoundId', 'score'], axis=1)
 
