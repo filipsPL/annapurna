@@ -74,9 +74,9 @@ To validate the installation and run tests, please execute `annapurna-tests.sh`.
 
 AnnapuRNA was extensively tested under Linux with Ubuntu versions 16.04, 18.04, and 20.04, with latest miniconda2 `Miniconda2-py27_4.8.3-Linux-x86_64.sh`.
 
-[![install and test](https://github.com/filipsPL/annapurna/workflows/install%20and%20test/badge.svg)](https://github.com/filipsPL/annapurna/actions?query=workflow%3A%22install+and+test%22)
+<!-- [![install and test](https://github.com/filipsPL/annapurna/workflows/install%20and%20test/badge.svg)](https://github.com/filipsPL/annapurna/actions?query=workflow%3A%22install+and+test%22)
 
-[![Flake8 python](https://github.com/filipsPL/annapurna/workflows/Flake8%20python/badge.svg)](https://github.com/filipsPL/annapurna/actions?query=workflow%3A%22Flake8+python%22)
+[![Flake8 python](https://github.com/filipsPL/annapurna/workflows/Flake8%20python/badge.svg)](https://github.com/filipsPL/annapurna/actions?query=workflow%3A%22Flake8+python%22) -->
 
 
 ## Singularity image
