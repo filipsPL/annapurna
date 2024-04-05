@@ -7,7 +7,7 @@
 # https://doi.org/10.1371/journal.pcbi.1008309
 
 
-import sys, getopt
+import sys
 import argparse
 from Bio import PDB
 import numpy as np
